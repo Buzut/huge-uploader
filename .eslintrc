@@ -1,0 +1,18 @@
+{
+    "extends": "airbnb-base",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "indent": ["error", 4, { "MemberExpression": 0 }],
+        "func-names": ["error", "never"],
+        "no-new": "off",
+        "comma-dangle": ["error", "never"],
+        "max-len": ["off", 120],
+        "no-plusplus": "off",
+        "no-underscore-dangle": "off",
+        "no-param-reassign": ["error", { "props": false }],
+        "brace-style": ["error", "stroustrup"],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}]
+    }
+}

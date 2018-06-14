@@ -1,0 +1,44 @@
+{
+  "name": "huge-uploader",
+  "version": "1.0.0",
+  "description": "Module to handle huge file uploads by chunking them in the browser. Resumable, fault tolerent, offline aware, mobile ready.",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Buzut/huge-uploader.git"
+  },
+  "keywords": [
+    "upload",
+    "file upload",
+    "huge file upload",
+    "big file upload",
+    "resumable upload",
+    "pausable upload",
+    "chunked upload",
+    "fault tolerent",
+    "file api"
+  ],
+  "author": "Buzut (buzut.fr)",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/Buzut/huge-uploader/issues"
+  },
+  "devDependencies": {
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.12.0",
+    "rollup": "0.60.2"
+  },
+  "dependencies": {
+    "event-target-shim": "^3.0.1"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "prepublish": "npm run build"
+  }
+}
