@@ -116,7 +116,7 @@ This module has a twin [Node.js module](https://github.com/Buzut/huge-uploader-n
 Files are sent with `POST` requests containing the following headers:
 * `uploader-file-id` unique file id based on file size, upload time and a random generated number (so it's really unique),
 * `uploader-chunks-total`the total numbers of chunk that will be sent,
-* `uploader-chunk-number` the current chunk number (0 based index, so last chunk is `uploader-chunks-total + 1`).
+* `uploader-chunk-number` the current chunk number (0 based index, so last chunk is `uploader-chunks-total - 1`).
 
 `POST` parameters are sent with the last chunk if any (as set in constructor's options object).
 
