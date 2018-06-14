@@ -1,4 +1,4 @@
-const { EventTarget } = require('event-target-shim');
+import { EventTarget } from 'event-target-shim';
 
 class HugeUploader {
     constructor(params) {
