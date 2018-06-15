@@ -125,7 +125,7 @@ The typical server implementation is to create a directory (name it after `uploa
 Also, don't forget that you might never receive the last chunk if upload is abandonned, so don't forget to clean your upload directory from time to time.
 
 In case you are sending to another domain or subdomain than the current site, you'll have to setup [`CORS`](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) accordingly. That is, set the following `CORS` headers:
-* `Access-Control-Allow-Origin: https://origin-domain.com` (here you can set a wildcard or the domain from witch you upload the file,
+* `Access-Control-Allow-Origin: https://origin-domain.com` (here you can set a wildcard or the domain from whitch you upload the file,
 * `Access-Control-Allow-Methods: POST,OPTIONS`,
 * `Access-Control-Allow-Headers: uploader-chunk-number,uploader-chunks-total,uploader-file-id`,
 * `Access-Control-Max-Age: 86400`.
