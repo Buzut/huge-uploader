@@ -14,11 +14,11 @@ That's what `huge-uploader` does. It:
 * obviously allows you to set custom headers and post parameters.
 
 ## Installation & usage
-```
+```javascript
 npm install huge-uploader --save
 ```
 
-```
+```javascript
 // require using commonJS
 const uploader = require('huge-uploader');
 
@@ -38,7 +38,7 @@ uploader.on('progress', (progress) => {
 });
 
 uploader.on('finish', () => {
-    console.log('yeahhh);
+    console.log('yeahhh');
 });
 
 // if you want to pause/resume the upload
@@ -64,12 +64,12 @@ Either server responds with an error code that isn't going to change.
 Success response codes are `200`, `201`, `204`. All error codes apart from `408`, `502`, `503`, `504` are considered not susceptible to change with a retry.
 
 Or there were too many retries already.
-```
+```javascript
 uploader.on('error', err => console.log(err.detail)); // A string explaining the error
 ```
 
 #### `fileRetry`
-```
+```javascript
 uploader.on('fileRetry', (msg) => {
     /** msg.detail is an object like:
     * {
@@ -82,26 +82,26 @@ uploader.on('fileRetry', (msg) => {
 ```
 
 #### `progress`
-```
+```javascript
 uploader.on(progress, progress => console.log(progress.detail)); // Number between 0 and 100
 ```
 
 #### `finish`
-```
+```javascript
 uploader.on('finish, () => console.log('🍾'));
 ```
 
 #### `offline`
 Notifies that browser is offline, hence the uploader paused itself. Nevertheless, it's paused internally, it has nothing to do with paused triggered with `.togglePause()` method nor does it interact with user pause state.
 
-```
+```javascript
 uploader.on('offline, () => console.log('no problem, wait and see…'));
 ```
 
 ### `online`
 Notifies that browser is back online and uploader is going to resume the upload (if not paused by `.togglePause()`).
 
-```
+```javascript
 uploader.on('offline, () => console.log('😎'));
 ```
 
