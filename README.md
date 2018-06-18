@@ -88,21 +88,21 @@ uploader.on(progress, progress => console.log(progress.detail)); // Number betwe
 
 #### `finish`
 ```javascript
-uploader.on('finish, () => console.log('🍾'));
+uploader.on('finish', () => console.log('🍾'));
 ```
 
 #### `offline`
 Notifies that browser is offline, hence the uploader paused itself. Nevertheless, it's paused internally, it has nothing to do with paused triggered with `.togglePause()` method nor does it interact with user pause state.
 
 ```javascript
-uploader.on('offline, () => console.log('no problem, wait and see…'));
+uploader.on('offline', () => console.log('no problem, wait and see…'));
 ```
 
 ### `online`
 Notifies that browser is back online and uploader is going to resume the upload (if not paused by `.togglePause()`).
 
 ```javascript
-uploader.on('offline, () => console.log('😎'));
+uploader.on('offline', () => console.log('😎'));
 ```
 
 ### Method
