@@ -10,7 +10,7 @@ That's what `huge-uploader` does. It:
 * chunks the file in pieces of your chosen size,
 * retries to upload a given chunk when transfer failed,
 * auto pauses transfer when device is offline and resumes it when back online,
-* allow you to pause and resume the upload,
+* allows you to pause and resume the upload,
 * obviously allows you to set custom headers and post parameters.
 
 ## Installation & usage
