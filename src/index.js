@@ -30,10 +30,11 @@ class HugeUploader {
         // restart sync when back online
         // trigger events when offline/back online
         window.addEventListener('online', () => {
-            if (this.offline) this._sendChunks();
+            if (this.offline) return;
 
             this.offline = false;
             this._eventTarget.dispatchEvent(new Event('online'));
+            this._sendChunks();
         });
 
         window.addEventListener('offline', () => {
@@ -102,6 +103,19 @@ class HugeUploader {
     }
 
     /**
+     * Called on net failure. If retry counter !== 0, retry after delayBeforeRetry
+     */
+    _manageRetries() {
+        if (this.retriesCount++ < this.retries) {
+            setTimeout(() => this._sendChunks(), this.delayBeforeRetry * 1000);
+            this._eventTarget.dispatchEvent(new CustomEvent('fileRetry', { detail: { message: `An error occured uploading chunk ${this.chunkCount}. ${this.retries - this.retriesCount} retries left`, chunk: this.chunkCount, retriesLeft: this.retries - this.retriesCount } }));
+            return;
+        }
+
+        this._eventTarget.dispatchEvent(new CustomEvent('error', { detail: `An error occured uploading chunk ${this.chunkCount}. No more retries, stopping upload` }));
+    }
+
+    /**
      * Manage the whole upload by calling getChunk & sendChunk
      * handle errors & retries and dispatch events
      */
@@ -122,14 +136,7 @@ class HugeUploader {
             // errors that might be temporary, wait a bit then retry
             else if ([408, 502, 503, 504].includes(res.status)) {
                 if (this.paused || this.offline) return;
-
-                if (this.retriesCount++ < this.retries) {
-                    setTimeout(() => this._sendChunks(), this.delayBeforeRetry * 1000);
-                    this._eventTarget.dispatchEvent(new CustomEvent('fileRetry', { detail: { message: `An error occured uploading chunk ${this.chunkCount}. ${this.retries - this.retriesCount} retries left`, chunk: this.chunkCount, retriesLeft: this.retries - this.retriesCount } }));
-                    return;
-                }
-
-                this._eventTarget.dispatchEvent(new CustomEvent('error', { detail: `An error occured uploading chunk ${this.chunkCount}. No more retries, stopping upload` }));
+                this._manageRetries();
             }
 
             else {
@@ -139,6 +146,9 @@ class HugeUploader {
         })
         .catch((err) => {
             if (this.paused || this.offline) return;
+
+            // this type of error can happen after network disconnection on CORS setup
+            this._manageRetries();
             this._eventTarget.dispatchEvent(new CustomEvent('error', { detail: `A network error occured ${err} Stopping upload` }));
         });
     }
