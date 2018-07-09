@@ -149,7 +149,6 @@ class HugeUploader {
 
             // this type of error can happen after network disconnection on CORS setup
             this._manageRetries();
-            this._eventTarget.dispatchEvent(new CustomEvent('error', { detail: `A network error occured ${err} Stopping upload` }));
         });
     }
 
