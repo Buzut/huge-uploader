@@ -30,7 +30,7 @@ class HugeUploader {
         // restart sync when back online
         // trigger events when offline/back online
         window.addEventListener('online', () => {
-            if (this.offline) return;
+            if (!this.offline) return;
 
             this.offline = false;
             this._eventTarget.dispatchEvent(new Event('online'));
