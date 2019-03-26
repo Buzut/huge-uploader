@@ -23,7 +23,7 @@
     "fault tolerent",
     "file api"
   ],
-  "author": "Buzut (buzut.fr)",
+  "author": "Buzut (buzut.net)",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/Buzut/huge-uploader/issues"
@@ -38,7 +38,7 @@
     "event-target-shim": "^3.0.1"
   },
   "scripts": {
-    "prepare": "test -d .git && cd .git/hooks/ && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/commit-msg && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/prepare-commit-msg && chmod +x *",
+    "prepare": "test -d .git && cd .git/hooks/ && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/commit-msg && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/prepare-commit-msg && chmod +x * || exit 0",
     "build": "rollup -c",
     "prepublishOnly": "npm run build"
   }
