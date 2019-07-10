@@ -122,7 +122,7 @@ Files are sent with `POST` requests containing the following headers:
 
 The typical server implementation is to create a directory (name it after `uploader-file-id`) when chunk 0 is received and write all chunks into it. When last chunk is received, grab the `POST` parameters if any, concatenate all the files into a single file and remove the temporary directory.
 
-Also, don't forget that you might never receive the last chunk if upload is abandonned, so don't forget to clean your upload directory from time to time.
+Also, don't forget that you might never receive the last chunk if upload is abandoned, so don't forget to clean your upload directory from time to time.
 
 In case you are sending to another domain or subdomain than the current site, you'll have to setup [`CORS`](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) accordingly. That is, set the following `CORS` headers:
 * `Access-Control-Allow-Origin: https://origin-domain.com` (here you can set a wildcard or the domain from whitch you upload the file,
