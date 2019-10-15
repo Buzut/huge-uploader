@@ -2,7 +2,7 @@
 
 `huge-uploader` is a JavaScript module designed to handle huge file uploads by chunking them in the browser. Uploads are resumable, fault tolerent, offline aware and mobile ready.
 
-HTTP and especially HTTP servers have limits and were not designed to transfer large files. In addition, network connection can be unreliable. No one wants an upload to fail after hours. Sometimes we even need to pause the upload, and HTTP doesn't allow that.
+HTTP and especially HTTP servers have limits and were not designed to transfer large files. In addition, network connection can be unreliable. No one wants an upload to fail after hours… Sometimes we even need to pause the upload, and HTTP doesn't allow that.
 
 The best way to circumvent these issues is to chunk the file and send it in small pieces. If a chunk fails, no worries, it's small and fast to re-send it. Wanna pause? Ok, just start where you left off when ready.
 
