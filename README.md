@@ -20,10 +20,10 @@ npm install huge-uploader --save
 
 ```javascript
 // require using commonJS
-const uploader = require('huge-uploader');
+const HugeUploader = require('huge-uploader');
 
 // or in es6, using a module bundler like webpack
-import uploader from 'huge-uploader';
+import HugeUploader from 'huge-uploader';
 
 // instanciate the module with a settings object
 const uploader = new HugeUploader({ endpoint: '//where-to-send-files.com/upload/', file: fileObject });
