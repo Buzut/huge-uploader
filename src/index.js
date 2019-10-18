@@ -141,7 +141,7 @@ class HugeUploader {
 
             else {
                 if (this.paused || this.offline) return;
-                this._eventTarget.dispatchEvent(new CustomEvent('error', { detail: `Server responded with ${res.status}. Stopping upload` }));
+                this._eventTarget.dispatchEvent(new CustomEvent('error', { detail: res }));
             }
         })
         .catch((err) => {
