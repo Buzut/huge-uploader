@@ -37,8 +37,8 @@ uploader.on('progress', (progress) => {
     console.log(`The upload is at ${progress.detail}%`);
 });
 
-uploader.on('finish', () => {
-    console.log('yeahhh');
+uploader.on('finish', (body) => {
+    console.log('yeahhh - last response body:', body);
 });
 
 // if you want to pause/resume the upload
@@ -87,8 +87,11 @@ uploader.on(progress, progress => console.log(progress.detail)); // Number betwe
 ```
 
 #### `finish`
+
+The finish event is triggered with the last response body attached.
+
 ```javascript
-uploader.on('finish', () => console.log('🍾'));
+uploader.on('finish', (body) => console.log('🍾'));
 ```
 
 #### `offline`
