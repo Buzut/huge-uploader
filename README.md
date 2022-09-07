@@ -105,7 +105,7 @@ uploader.on('offline', () => console.log('no problem, wait and see…'));
 Notifies that browser is back online and uploader is going to resume the upload (if not paused by `.togglePause()`).
 
 ```javascript
-uploader.on('offline', () => console.log('😎'));
+uploader.on('online', () => console.log('😎'));
 ```
 
 ### Method
