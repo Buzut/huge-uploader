@@ -129,7 +129,7 @@ class HugeUploader {
                 if (++this.chunkCount < this.totalChunks) this._sendChunks();
                 else {
                   res.text().then(body => {
-                    this._eventTarget.dispatchEvent(new CustomEvent('finish', { body }));
+                    this._eventTarget.dispatchEvent(new CustomEvent('finish', { detail: body }));
                   })
                 }
 
