@@ -19,10 +19,6 @@ npm install huge-uploader --save
 ```
 
 ```javascript
-// require using commonJS
-const HugeUploader = require('huge-uploader');
-
-// or in es6, using a module bundler like webpack
 import HugeUploader from 'huge-uploader';
 
 // instanciate the module with a settings object
@@ -30,7 +26,7 @@ const uploader = new HugeUploader({ endpoint: '//where-to-send-files.com/upload/
 
 // subscribe to events
 uploader.on('error', (err) => {
-	console.error('Something bad happened', err.detail);
+    console.error('Something bad happened', err.detail);
 });
 
 uploader.on('progress', (progress) => {
@@ -38,7 +34,7 @@ uploader.on('progress', (progress) => {
 });
 
 uploader.on('finish', (body) => {
-    console.log('yeahhh - last response body:', body);
+    console.log('yeahhh - last response body:', body.detail);
 });
 
 // if you want to pause/resume the upload
@@ -91,7 +87,7 @@ uploader.on(progress, progress => console.log(progress.detail)); // Number betwe
 The finish event is triggered with the last response body attached.
 
 ```javascript
-uploader.on('finish', (body) => console.log('🍾'));
+uploader.on('finish', body => console.log('🍾'));
 ```
 
 #### `offline`
