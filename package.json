@@ -32,7 +32,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
-    "rollup": "^0.60.2"
+    "rollup": "^2.79.2"
   },
   "dependencies": {
     "event-target-shim": "^3.0.1"
