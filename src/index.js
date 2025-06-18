@@ -5,6 +5,7 @@ class HugeUploader {
         this.endpoint = params.endpoint;
         this.file = params.file;
         this.headers = params.headers || {};
+        this.init = params.init || {}
         this.postParams = params.postParams;
         this.chunkSize = params.chunkSize || 10;
         this.retries = params.retries || 5;
@@ -99,7 +100,7 @@ class HugeUploader {
         form.append('file', this.chunk);
         this.headers['uploader-chunk-number'] = this.chunkCount;
 
-        return fetch(this.endpoint, { method: 'POST', headers: this.headers, body: form });
+        return fetch(this.endpoint, { ...this.init, method: 'POST', headers: this.headers, body: form });
     }
 
     /**

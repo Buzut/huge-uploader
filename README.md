@@ -46,6 +46,7 @@ The constructor takes a settings object. Available options are:
 * `endpoint { String }` – where to send the chunks (__required__)
 * `file { Object }` – a [File object](https://developer.mozilla.org/en-US/docs/Web/API/File) representing the file to upload (__required__)
 * `headers { Object }` – custom headers to send with each request
+* `init { Object }` – custom init to send with each request
 * `postParams { Object }` – post parameters that __will be sent with the last chunk__
 * `chunkSize { Number }` – size of each chunk in MB (default is 10MB)
 * `retries { Number }` – number of total retries (total, not per chunk) after which upload fails (default is 5)
