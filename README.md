@@ -132,14 +132,9 @@ In case you are sending to another domain or subdomain than the current site, yo
 
 These parameters tell your browser that it can use `OPTIONS` (the [preflight request](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request)) and `POST` methods on the target domain and that the custom headers are allowed to be sent. The last header tells the browser than it can cache the result of the preflight request (here for 24hrs) so that it doesn't need to re-send a preflight before each `POST` request.
 
-
 ## Under the hood
 
-The library works around the [HTML5 `File` API](https://developer.mozilla.org/en-US/docs/Web/API/File), the rather new [`Fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and the new [`EventTarget` constructor](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/EventTarget).
-
-`EventTarget` constructor is polyfilled so it won't be a problem. Nevertheless, your target browsers have to support HTML5 [`File` API](https://caniuse.com/#feat=fileapi) and [`Fetch` API](https://caniuse.com/#feat=fetch). It means that all browsers in their recent versions apart from Internet Explorer can run this without a problem.
-
-You can polyfill [`Fetch`](https://github.com/github/fetch) if you want to support IE.
+The library works around the [HTML5 `File` API](https://developer.mozilla.org/en-US/docs/Web/API/File), the [`Fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and the [`EventTarget` constructor](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/EventTarget).
 
 ## Contributing
 There's sure room for improvement, so feel free to hack around and submit PRs!
