@@ -4,7 +4,7 @@
         "browser": true
     },
     "rules": {
-        "indent": ["error", 4, { "MemberExpression": 0 }],
+        "indent": ["error", 2],
         "func-names": ["error", "never"],
         "no-new": "off",
         "comma-dangle": ["error", "never"],
