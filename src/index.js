@@ -1,5 +1,3 @@
-import { EventTarget } from 'event-target-shim';
-
 class HugeUploader {
   constructor(params) {
     this.endpoint = params.endpoint;

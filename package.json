@@ -34,9 +34,6 @@
     "eslint-plugin-import": "^2.12.0",
     "rollup": "^2.79.2"
   },
-  "dependencies": {
-    "event-target-shim": "^3.0.1"
-  },
   "scripts": {
     "prepare": "test -d .git && cd .git/hooks/ && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/commit-msg && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/prepare-commit-msg && chmod +x * || exit 0",
     "build": "rollup -c",
